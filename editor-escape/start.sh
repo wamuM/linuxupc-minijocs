@@ -34,7 +34,7 @@ read -p "\$ Enter your username: " username
 clear
 echo "You will now have to close a bunch of classic text editors in order, try to go as fast as you can!"
 echo "But keep in mind that you can't close the terminal (or kill this process)"
-read -n 1 -s "Press any key to continue..."
+read -n 1 -s -p "Press any key to continue..." dummy
 clear
 figlet 3
 sleep 1s
