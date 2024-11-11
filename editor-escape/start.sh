@@ -20,13 +20,13 @@ clear
 echo " "
 echo "L e a d e r     B o a r d:"
 echo " "
-echo "1st - $name_1st - $time_1st"
+echo "1st: $name_1st - $time_1st"
 echo " "
-echo "2nd - $name_2nd - $time_2nd"
+echo "2nd: $name_2nd - $time_2nd"
 echo " "
-echo "3rd - $name_3rd - $time_3rd"
+echo "3rd: $name_3rd - $time_3rd"
 echo " "
-echo "Latest - $name_latest - $time_latest"
+echo "Latest: $name_latest - $time_latest"
 echo " "
 echo " "
 echo " "
@@ -71,6 +71,8 @@ sleep 1
 comp=$(echo "$total < $time_1st" | bc )
 if [  "$comp" -eq "1" ]; then
 	figlet Hold my beer, You are first!
+	cp ./leaderboard/2nd/* ./leaderboard/3rd/
+	cp ./leaderboard/1st/* ./leaderboard/2nd/
 	echo $username > ./leaderboard/1st/name 
 	echo $total > ./leaderboard/1st/time 
 	exit
@@ -78,6 +80,7 @@ fi
 comp=$(echo "$total < $time_2nd" | bc )
 if [ "$comp" -eq "1" ]; then
 	figlet Oh dear, You are second!
+	cp ./leaderboard/2nd/* ./leaderboard/3rd/
 	echo $username > ./leaderboard/2nd/name 
 	echo $total > ./leaderboard/2nd/time 
 	exit
